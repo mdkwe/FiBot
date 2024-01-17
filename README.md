@@ -2,7 +2,7 @@
 
 Started: January 9, 2024
 
-Memor.ia is a third-party application designed to help users manage their investment strategy intelligently, utilizing the XTB API. Our mission is to provide advanced tools and features to optimize investment performance while minimizing risks.
+Memor.ia is a third-party application designed to help users manage their investment strategy intelligently. Our mission is to provide advanced tools and features to optimize investment performance while minimizing risks.
 
 ## License
 
