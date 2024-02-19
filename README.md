@@ -1,8 +1,8 @@
-# Memor.ia - Enlighten Your Investment Strategy
+# FiBot - Enlighten Your Investment Strategy
 
 Started: January 9, 2024
 
-Memor.ia is a third-party application designed to help users manage their investment strategy intelligently. Our mission is to provide advanced tools and features to optimize investment performance while minimizing risks.
+FiBot is a third-party application designed to help users manage their investment strategy intelligently. Our mission is to provide advanced tools and features to optimize investment performance while minimizing risks.
 
 ## License
 
