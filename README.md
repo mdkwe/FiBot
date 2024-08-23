@@ -3,7 +3,7 @@
 
 **Started:** January 9, 2024
 
-FiBot is a Flask-based web application that allows users to easily look up stock tickers by company name and retrieve detailed financial information and recent news about the companies. Designed with investors in mind, FiBot helps users make informed decisions by providing key data and insights directly from the web.
+FiBot is a Flask-based web application that allows users to easily look up stock tickers by company name and retrieve detailed financial information and recent news about the companies.
 
 ---
 
@@ -25,7 +25,7 @@ Here are some screenshots showcasing the interface:
   Click on a ticker to access a comprehensive overview of the stock, including sector, industry, current price, beta, day range, previous close, and more.
 
 - **Latest News Integration:**  
-  Stay updated with the latest news articles related to the selected company. FiBot displays the most recent news with links to full articles, helping you keep a pulse on market sentiment.
+  Stay updated with the latest news articles related to the selected company. FiBot displays the most recent news with links to full articles.
 
 ---
 
@@ -33,10 +33,8 @@ Here are some screenshots showcasing the interface:
 
 ### Web Scraping
 
-FiBot uses web scraping techniques to gather the latest stock information and news directly from financial websites. Web scraping involves programmatically accessing web pages, extracting relevant data, and displaying it in a user-friendly format. In FiBot, this is primarily achieved using the following tools:
-
+FiBot uses web scraping techniques to gather the latest stock information and news directly from financial websites. In FiBot, this is primarily achieved using the following tools:
 - **Selenium**: A powerful web scraping tool that automates browser actions, allowing FiBot to interact with dynamic web pages and extract information such as company names, tickers, and related news articles.
-
 - **yfinance**: A library to fetch detailed financial data for specific stock tickers. `yfinance` is a Python library that wraps the Yahoo Finance API, enabling easy access to stock market data.
 
 ---
@@ -61,22 +59,30 @@ app/
 
 ## How to Run the Project
 
-1. **Clone the Repository:**
+1. **Clone the Repository**:
+```bash
+git clone https://github.com/mdkwe/FiBot.git
+cd Forecast
+```
 
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
+2. **Create a Virtual Environment**:
+- Unix/MacOS:
+  ```
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+- Windows:
+  ```
+  python -m venv venv
+  venv\\Scripts\\activate
+  ```
 
-2. **Install Dependencies:**
+3. **Install Dependencies**:
+```bash
+pip install -r requirements.txt
+```
 
-   Make sure you have Python installed, then install the required Python packages:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the Flask Application:**
+4. **Run the Flask Application:**
 
    ```bash
    python app/app.py
@@ -84,7 +90,7 @@ app/
 
    The application will be accessible at `http://127.0.0.1:5000/`.
 
-4. **Access the Application:**
+5. **Access the Application:**
 
    - **Home Page:** Enter a company name to retrieve its ticker and exchange information.
    - **Ticker Details:** Click on a ticker from the results to view more detailed information, including the latest news.
