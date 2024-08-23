@@ -11,8 +11,8 @@ FiBot is a Flask-based web application that allows users to easily look up stock
 
 Here are some screenshots showcasing the interface:
 
-- ![image_search](app/static/img/search_company_name.png)
-- ![image_ticker](app/static/img/ticker_and_detail.png)
+![image_search](app/static/img/search_company_name.png)
+![image_ticker](app/static/img/ticker_and_detail.png)
 
 ---
 
