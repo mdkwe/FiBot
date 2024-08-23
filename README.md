@@ -2,6 +2,7 @@
 # FiBot - Enlighten Your Investment Strategy
 
 **Started:** January 9, 2024
+**Ended:** August 23, 2024
 
 FiBot is a Flask-based web application that allows users to easily look up stock tickers by company name and retrieve detailed financial information and recent news about the companies.
 
