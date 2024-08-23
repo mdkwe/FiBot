@@ -62,7 +62,7 @@ app/
 1. **Clone the Repository**:
 ```bash
 git clone https://github.com/mdkwe/FiBot.git
-cd Forecast
+cd Fibot
 ```
 
 2. **Create a Virtual Environment**:
