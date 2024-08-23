@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}FiBot - Company Name to Ticker{% endblock %}
+
+{% block company_tab_class %}is-active{% endblock %}
+
+{% block content %}
+  <div class="box" id="company-form">
+    <form method="POST">
+      <div class="field is-grouped  mb-4">
+        <p class="control is-expanded">
+          <input class="input" type="text" name="company_name" placeholder="Enter a company name ..." required>
+        </p>
+        <p class="control">
+          <button class="button is-info" type="submit" name="submit_company">Submit</button>
+        </p>
+      </div>
+    </form>
+
+    {% if df_filtered is not none %}
+    <div class="container mt-5">
+      <table class="table is-fullwidth is-striped">
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Company Name</th>
+            <th>Exchange</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in df_filtered %}
+          <tr>
+            <td>{{ row['Ticker'] }}</td>
+            <td>{{ row['Company Name'] }}</td>
+            <td>{{ row['Exchange'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+{% endblock %}
