@@ -50,7 +50,7 @@ app/
 │   ├── ticker.html          # Ticker details page template
 ├── static/
 │   ├── styles.css           # Custom CSS styles
-│   ├── img/                 # Custom CSS styles
+│   ├── img/                 # File containing screenshots
 ├── functions.py             # Helper functions for data retrieval
 └── README.md                # Project documentation
 ```
