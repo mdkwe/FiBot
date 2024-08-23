@@ -15,20 +15,18 @@ def index():
 
     return render_template('index.html', df_filtered=df_filtered)
 
-@app.route('/ticker', methods=['GET', 'POST'])
-def ticker():
-    stock_info = None
-    latest_news = None
-    if request.method == 'POST':
-        ticker_name = request.form.get('ticker_name')
-        if ticker_name:
-            stock_info = get_stock_info(ticker_name)
-            long_name = stock_info['Name']
-            latest_news = get_company_news(long_name,ticker_name)
-            print("done")
+@app.route('/<ticker>')
+def ticker_info(ticker):
+    if request.method == 'GET':
+        if ticker:
+                stock_info = get_stock_info(ticker)
+                long_name = stock_info['Name']
+                latest_news = get_company_news(long_name,ticker)
+                print("done")
     return render_template('ticker.html', 
                                 stock_info=stock_info, 
                                 latest_news=latest_news)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

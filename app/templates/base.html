@@ -1,78 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}FiBot - Enlighten Your Investment Strategy{% endblock %}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body>
-    <section class="section">
-      <div class="container mb-5">
-        <h1 class="title">
-          {% block name %}Welcome to my Flask app{% endblock %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}FiBot - Enlighten Your Investment Strategy{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+  <section class="section">
+    <div class="container mb-5">
+      <div class="is-flex is-justify-content-space-between is-align-items-center">
+        <h1 class="title mb-0">
+          {% block name %}Welcome to FiBot{% endblock %}
         </h1>
-        <p class="subtitle">
-          {% block subtitle %}Your tool for smarter investment decisions!{% endblock %}
-        </p>
+
+        <!-- Home Icon -->
+        <div class="icon-home">
+          <a href="{{ url_for('index') }}" title="Go to Home">
+            <span class="icon">
+              <i class="bx bx-home bx-md"></i>
+            </span>
+          </a>
+        </div>
       </div>
+      <p class="subtitle">
+        {% block subtitle %}Convert company names to stock tickers and access detailed financial insights{% endblock %}
+      </p>
+    </div>
 
-      <!-- Tabs Navigation -->
-      <div class="tabs is-small">
-        <ul>
-          <li class="{% block company_tab_class %}{% endblock %}" id="company-tab"><a href="#" data-url="{{ url_for('index') }}">Company name to ticker</a></li>
-          <li class="{% block ticker_tab_class %}{% endblock %}" id="ticker-tab"><a href="#" data-url="{{ url_for('ticker') }}">Ticker details</a></li>
-        </ul>
-      </div>
+    <!-- Content Section -->
+    <div class="container" id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </section>
+</body>
 
-      <!-- Content Section -->
-      <div class="container" id="content">
-        {% block content %}{% endblock %}
-      </div>
-    </section>
-
-    <script>
-      // JavaScript to handle tab navigation and route change
-      document.addEventListener('DOMContentLoaded', function() {
-        const tabs = document.querySelectorAll('.tabs ul li a');
-
-        tabs.forEach(tab => {
-          tab.addEventListener('click', function(event) {
-            event.preventDefault();
-            const url = this.getAttribute('data-url');
-            fetchContent(url);
-            history.pushState(null, '', url);
-          });
-        });
-
-        // Function to fetch and display the content
-        function fetchContent(url) {
-          fetch(url)
-            .then(response => response.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(html, 'text/html');
-              const newContent = doc.querySelector('#content').innerHTML;
-              document.querySelector('#content').innerHTML = newContent;
-
-              // Update active tab
-              tabs.forEach(tab => {
-                tab.parentElement.classList.remove('is-active');
-              });
-              const activeTab = Array.from(tabs).find(tab => tab.getAttribute('data-url') === url);
-              activeTab.parentElement.classList.add('is-active');
-            })
-            .catch(error => console.error('Error fetching content:', error));
-        }
-
-        // Handle back/forward button navigation
-        window.addEventListener('popstate', function() {
-          const url = window.location.pathname;
-          fetchContent(url);
-        });
-      });
-    </script>
-  </body>
 </html>

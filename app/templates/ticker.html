@@ -7,22 +7,11 @@
 {% block content %}
 <!-- Search Section -->
 <div class="box">
-    <form method="POST">
-        <div class="field is-grouped mb-4">
-            <p class="control is-expanded">
-                <input class="input" type="text" name="ticker_name" placeholder="Enter a ticker ..." required>
-            </p>
-            <p class="control">
-                <button class="button is-info" type="submit" name="submit_ticker">Submit</button>
-            </p>
-        </div>
-    </form>
-
     {% if stock_info %}
     <!-- Ticker Information -->
     <div class="box is-5">
         <h2 class="title is-4">{{ stock_info['Name'] }} ({{ stock_info['Symbol'] }})</h2>
-        <p class="subtitle">{{ stock_info['Exchange'] }} - {{ stock_info['Currency'] }}</p>
+        <p class="subtitle">{{ stock_info['Exchange'] }} - Devise en {{ stock_info['Currency'] }}</p>
     </div>
 
     <!-- Stock Summary -->

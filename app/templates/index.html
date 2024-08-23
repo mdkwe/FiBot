@@ -5,7 +5,7 @@
 {% block company_tab_class %}is-active{% endblock %}
 
 {% block content %}
-  <div class="box" id="company-form">
+  <div class="box">
     <form method="POST">
       <div class="field is-grouped  mb-4">
         <p class="control is-expanded">
@@ -30,7 +30,7 @@
         <tbody>
           {% for row in df_filtered %}
           <tr>
-            <td>{{ row['Ticker'] }}</td>
+            <td><a href="http://127.0.0.1:5000/{{ row['Ticker'] }}">{{ row['Ticker'] }}</a></td>
             <td>{{ row['Company Name'] }}</td>
             <td>{{ row['Exchange'] }}</td>
           </tr>
